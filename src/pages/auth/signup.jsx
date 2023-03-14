@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Login from "../../components/auth/login";
+import Signup from "../../components/auth/signup";
 import app_api from "../../config/config";
 
-const Auth = () => {
+const SignUp = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -14,7 +14,7 @@ const Auth = () => {
   const performLogin = (values) => {
     setLoading(true);
     app_api
-      .post("/auth/login", values)
+      .post("/auth/register", values)
       .then((res) => {
         setLoading(false);
         setError(null);
@@ -35,9 +35,9 @@ const Auth = () => {
 
   return (
     <div>
-      <Login loading={loading} error={error} login={performLogin} />
+      <Signup loading={loading} error={error} signup={performLogin} />
     </div>
   );
 };
 
-export default Auth;
+export default SignUp;

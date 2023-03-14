@@ -4,7 +4,7 @@ import { loginSchema } from "../../schema";
 import logo from "../../assets/images/logo.png";
 // import loginBg from '../../assets/images/login_bg.png'
 
-const Login = ({ loading, error, login }) => {
+const Signup = ({ loading, error, signup }) => {
   return (
     <>
       <div className="relative flex min-h-screen text-left">
@@ -15,10 +15,10 @@ const Login = ({ loading, error, login }) => {
           <div className="w-full max-w-sm mx-auto">
             <div>
               <h2 className="text-3xl font-medium tracking-tight text-gray-900">
-                Log in
+                Sign Up
               </h2>
               <p className="my-2 text-sm font-normal text-gray-500">
-                Welcome back! Please enter your details
+                Welcome! Please enter your details
               </p>
             </div>
 
@@ -30,7 +30,7 @@ const Login = ({ loading, error, login }) => {
                 <Formik
                   initialValues={{ username: "", password: "" }}
                   validationSchema={loginSchema}
-                  onSubmit={login}
+                  onSubmit={signup}
                 >
                   {({
                     handleBlur,
@@ -59,7 +59,7 @@ const Login = ({ loading, error, login }) => {
                             placeholder="Username"
                             name="username"
                             type="text"
-                            autoComplete
+                            // autoComplete
                             required={true}
                             value={values.username}
                             onChange={handleChange}
@@ -87,7 +87,7 @@ const Login = ({ loading, error, login }) => {
                               placeholder="Password"
                               name="password"
                               type="password"
-                              autoComplete
+                            //   autoComplete
                               required={true}
                               value={values.password}
                               onChange={handleChange}
@@ -118,12 +118,12 @@ const Login = ({ loading, error, login }) => {
                 </Formik>
                 <div>
                   <p className="text-sm inline-flex">
-                    New Student? &nbsp;
+                    Already a member? &nbsp;
                     <a
-                      href="/signup"
+                      href="/"
                       className="text-sm underline font-semibold"
                     >
-                      Signup
+                      Login
                     </a>
                   </p>
                 </div>
@@ -145,4 +145,4 @@ const Login = ({ loading, error, login }) => {
   );
 };
 
-export default Login;
+export default Signup;
